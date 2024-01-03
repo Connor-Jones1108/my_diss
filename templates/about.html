@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="section">
+  <div class="container">
+    <!-- Error Message Display -->
+    {% if error_statement %}
+      <div class="alert alert-danger">
+        <strong>Error:</strong> {{ error_statement }}
+      </div>
+    {% endif %}
+    <!-- End of Error Message Display -->
+    
+        <!-- Centered About Section -->
+    <div class="about-center">
+      <div class="about-head-text-wrap">
+        <div class="label cc-about-light"></div>
+        <h2 class="hi-there-heading">About the site</h2>
+        
+        <p>We are delighted to assist you in providing valuable insights and information about your living space. Please take a moment to fill out our detailed webform with the following details:</p>
+
+<ul>
+    <li><strong>Address:</strong> Let us know where your property is located.</li>
+    <li><strong>Postcode:</strong> This helps us identify the exact area for localized data.</li>
+    <li><strong>Description:</strong> Share a brief description of your property. Feel free to mention any unique features or general observations.</li>
+    <li><strong>Electricity Cost:</strong> How much do you pay for electricity? This helps us calculate average utility costs in your area.</li>
+    <li><strong>Water Cost:</strong> Include your water expenses to aid in our cost analysis.</li>
+    <li><strong>Internet Cost:</strong> Since connectivity is key, tell us about your internet service costs.</li>
+    <li><strong>Council Tax:</strong> Input the amount you pay in council tax. This is important for budgeting and comparison.</li>
+    <li><strong>Landlord Review:</strong> Provide feedback about your landlord. Your experience can help future tenants.</li>
+    <li><strong>Property Tip:</strong> Do you have any tips or advice for living in your property or neighborhood? Share your insights!</li>
+</ul>
+
+<p>Your information is invaluable in helping others make informed decisions about their rental choices. Thank you for your contribution!</p>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="w-layout-grid skills-grid">
+      <div id="w-node-dac044b7-be90-60f3-414d-4224828ffd8a-76c65c7a" class="skillset-wrap">
+        <div class="property-details">
+
+          <form action="/submit-property" method="post" enctype="multipart/form-data">
+            <h3>Upload form</h3>
+            <label for="address">Address:</label>
+            <input type="text" name="address" placeholder="Enter property address"><br>
+    
+            <label for="postcode">Postcode:</label>
+            <input type="text" name="postcode" placeholder="Enter property postcode"><br>
+    
+            <label for="description">Description:</label>
+            <textarea name="description" placeholder="Describe the property"></textarea><br>
+    
+            <label for="electricity">Electricity Cost:</label>
+            <input type="text" name="electricity" placeholder="Monthly electricity cost (e.g., $100)"><br>
+    
+            <label for="water">Water Cost:</label>
+            <input type="text" name="water" placeholder="Monthly water cost (e.g., $50)"><br>
+    
+            <label for="internet">Internet Cost:</label>
+            <input type="text" name="internet" placeholder="Monthly internet cost (e.g., $40)"><br>
+    
+            <label for="council_tax">Council Tax:</label>
+            <input type="text" name="council_tax" placeholder="Annual council tax amount"><br>
+    
+            <label for="landlord_review">Landlord Review:</label>
+            <textarea name="landlord_review" placeholder="Write a review about the landlord"></textarea><br>
+    
+            <label for="property_tip">Property Tip:</label>
+            <textarea name="property_tip" placeholder="Share a tip or useful information about this property"></textarea><br>
+
+            <label for="image">Property Image:</label>
+            <input type="file" name="file" accept="image/png, image/jpeg, image/gif"><br>
+    
+    
+            <input type="submit" value="Submit">
+        </form>
+   
+  
+         
+  
+      </div>
+
+  
+  
+  
+
+  
+</body>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container"> 
+  </br></br>
+  {% if comments %}
+  <h3>Leave a review of the site!</h3>
+  <ul>
+    {% for comment in comments %}
+    <li>{{ comment[0] }} {{ comment[1] }}: {{ comment[2] }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <form action="{{ url_for('about') }}" method="post">
+    <textarea name="comment_text" rows="4" cols="50"></textarea><br>
+    <input type="submit" value="Submit Comment">
+  </form>
+  
+  
+</div>
+{% endblock %}

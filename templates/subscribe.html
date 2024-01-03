@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+      <div class="container"> 
+    <h1>Register</h1>
+      </br></br>
+
+      <form action="/form" method="post">
+        <div class="mb-3">
+          
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First name" name="First_name">
+          
+       
+        </div>
+       
+        <div class="mb-3">
+            
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last name" name="Last_name">
+            
+          
+        </div>
+         
+          <div class="mb-3">
+            
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address" name="Email">
+            <div id="emailHelp" class="form-text"></div>
+         
+        </div>
+        <div class="mb-3">
+            
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password" name="Password">
+          <div id="emailHelp" class="form-text"></div>
+       
+      </div>
+        
+       
+        
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+
+
+
+
+      </div>
+    
+    
+{% endblock %}

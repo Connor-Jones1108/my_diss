@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Welcome {% endblock %}
+
+{% block content %}
+
+<div class="section">
+  <div class="container">
+      <div class="intro-wrap">
+          <div class="name-text">Welcome</div>
+          <div class="paragraph-light"></div>
+          <h1 class="heading-jumbo">Please select from the options below </h1>
+          
+      </div>
+      <div class="section">
+        <div id="works-grid" class="w-layout-grid works-grid">
+            <div id="w-node-dff26f68-5731-3efa-d3dd-8f65c72d8fa5-54c65c77">
+                <div class="work-description"><a href="{{ url_for('about')}}" class="project-name-link">Upload<br /></a>
+                    <div class="paragraph-light">Got a property experience to share? Use our simple review form to tell your story! Fill in a few details, write your review, and optionally attach images. It's quick and easy – just hit 'Submit' to share your insights and help others make informed choices. Your opinion is valuable, so let it be heard!</div><img
+                        src="static/images/house.JPG" width="400"
+                        
+                        alt="" />
+                </div>
+            </div>
+            <div id="w-node-dff26f68-5731-3efa-d3dd-8f65c72d8fad-54c65c77">
+                <div class="work-description"><a href="{{ url_for('quality')}}" class="project-name-link">Search</a>
+                    <div class="paragraph-light">Discover your ideal property with our user-friendly search feature! Simply browse our database of user-uploaded properties. Enhance your search by applying our unique 'vote-based' filter: sort properties by community upvotes or downvotes. This filter reveals properties highly recommended by users, helping you make informed decisions based on community feedback. Find your perfect home, validated and loved by users like you! </div><img
+                        src="static/images/search.JPG"
+                       width="200" height="400"
+                        alt="" />
+                </div>
+            </div>
+            <div id="w-node-dff26f68-5731-3efa-d3dd-8f65c72d8fb4-54c65c77">
+                <div class="work-description"><a href="{{ url_for('register')}}" class="project-name-link">Register</a>
+                    <div class="paragraph-light">Join our community now! Register and log in to cast your votes, share your property experiences with optional images, and leave valuable feedback about our site. Your insights make a difference!</div><img
+                        src="static/images/register.JPG"
+                        width="400"
+                        alt="" />
+                </div>
+            </div>
+            <div id="w-node-dff26f68-5731-3efa-d3dd-8f65c72d8fbb-54c65c77">
+                <div class="work-description"><a href="{{ url_for('quality')}}" class="project-name-link">Vote</a>
+                    <div class="paragraph-light">Check out our property reviews section where your opinion truly counts! For each review, you'll find easy-to-use thumbs-up and thumbs-down buttons for voting. Share your thoughts with just a click – but remember, you can cast only one vote per review to keep our feedback fair and balanced. Your input is invaluable in helping others make informed decisions, so let your voice be heard!</div><img
+                        src="static/images/vote.JPG"
+                        width="400"
+                        alt="" />
+                </div>
+            </div>
+        </div>
+  </div>
+  
+    
+</div>
+ 
+    
+{% endblock %}

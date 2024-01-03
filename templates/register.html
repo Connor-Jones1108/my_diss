@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST">
+        <label for="First_name">First Name:</label>
+        <input type="text" name="First_name"><br>
+
+        <label for="Last_name">Last Name:</label>
+        <input type="text" name="Last_name"><br>
+
+        <label for="Email">Email:</label>
+        <input type="email" name="Email"><br>
+
+        <label for="Password">Password:</label>
+        <input type="password" name="Password"><br>
+
+        <button type="submit">Register</button>
+    </form>
+    <p>{{ error_statement }}</p>
+    <h1 class="heading-jumbo-small">REMINDER! You need to login in order to:</h1>
+        <ul>
+            <li class="list-item">Vote!</li>
+            <li class="list-item">Leave a comment!</li>
+            <li class="list-item">Upload a property.</li>
+        </ul>
+        <p class="paragraph-small"><strong>Please Register now if you don't already have an account.</strong></p>
+</body>
+</html>
+{% endblock %}

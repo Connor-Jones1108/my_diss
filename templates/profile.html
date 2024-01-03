@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Connor Jones's website{% endblock %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome to Your Profile</h1>
+    <p><strong>First Name:</strong> {{ user[1] }}</p>
+    <p><strong>Last Name:</strong> {{ user[2] }}</p>
+    <p><strong>Email:</strong> {{ user[3] }}</p>
+
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit">Log Out</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}

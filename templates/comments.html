@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to Connor Jones's website{% endblock %}
+
+{% block content %}
+
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments for {{ page }}</h1>
+    <ul>
+        {% for comment in comments %}
+            <li><strong>{{ comment[0] }} {{ comment[1] }}</strong>: {{ comment[2] }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>Add a Comment</h2>
+    <form action="{{ url_for(page) }}" method="post">
+        <input type="hidden" name="page" value="{{ page }}">
+        <textarea name="comment_text" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit Comment">
+    </form>
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

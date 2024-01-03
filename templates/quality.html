@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Quality - Connor Jones's website{% endblock %}
+
+{% block content %}
+<style>
+    .property-card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .property-image {
+        width: 100%; /* Adjust width as needed */
+        height: auto; /* Adjust height as needed */
+        margin-bottom: 10px;
+    }
+    .error-message {
+        color: red;
+        margin-bottom: 20px;
+    }
+</style>
+
+<!-- Error Message Display -->
+{% if error_statement %}
+    <div class="error-message">
+        {{ error_statement }}
+    </div>
+{% endif %}
+
+<div class="section">
+    <!-- Search form with filter -->
+    <form action="{{ url_for('quality') }}" method="get">
+        <input type="text" name="search" placeholder="Search properties...">
+        <!-- Filter dropdown -->
+        <select name="filter">
+            <option value="">Select filter</option>
+            <option value="upvotes">Upvotes</option>
+            <option value="downvotes">Downvotes</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- New properties section -->
+    <h1>Properties</h1>
+    <div id="properties">
+        {% for property in properties %}
+            <div class="property-card">
+                {% if property[10] %} <!-- Check if there is an image path -->
+                    <img src="{{ url_for('static', filename=property[10]) }}" alt="Property Image" class="property-image">
+                {% endif %}
+                <h3>Property ID: {{ property[0] }}</h3> <!-- Property ID -->
+                <h2>{{ property[1] }}</h2> <!-- Address -->
+                <p><strong>Postcode:</strong> {{ property[2] }}</p> <!-- Postcode -->
+                <p><strong>Description:</strong> {{ property[3] }}</p> <!-- Description -->
+                <p><strong>Electricity Cost:</strong> {{ property[4] }}</p> <!-- Electricity Cost -->
+                <p><strong>Water Cost:</strong> {{ property[5] }}</p> <!-- Water Cost -->
+                <p><strong>Internet Cost:</strong> {{ property[6] }}</p> <!-- Internet Cost -->
+                <p><strong>Council Tax:</strong> {{ property[7] }}</p> <!-- Council Tax -->
+                <p><strong>Landlord Review:</strong> {{ property[8] }}</p> <!-- Landlord Review -->
+                <p><strong>Property Tip:</strong> {{ property[9] }}</p> <!-- Property Tip -->
+
+                <!-- Voting forms -->
+                <form action="{{ url_for('vote', property_id=property[0], vote_type='upvote') }}" method="post">
+                    <button type="submit">Upvote ({{ property[11] }})</button>
+                </form>
+                <form action="{{ url_for('vote', property_id=property[0], vote_type='downvote') }}" method="post">
+                    <button type="submit">Downvote ({{ property[12] }})</button>
+                </form>
+            </div>
+        {% else %}
+            <p>No properties have been uploaded yet.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- Rest of your existing content -->
+</div>
+<!-- ... rest of your existing content ... -->
+
+{% endblock %}
