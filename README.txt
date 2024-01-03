@@ -17,7 +17,7 @@ git clone https://github.com/your-username/your-flask-web-app.git
 
 
 2. Navigate to the project directory:
-cd /c/my_flask/
+cd /c/my_diss/
 
 
 
